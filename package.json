@@ -18,6 +18,7 @@
     "nodemon": "^3.1.4",
     "postgresql": "^0.0.1",
     "sequelize": "^6.37.3",
+    "socket.io": "^4.8.1",
     "sql": "^0.78.0"
   }
 }

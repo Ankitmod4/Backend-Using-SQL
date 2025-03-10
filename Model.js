@@ -1,16 +1,24 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./Database');
 
-const Product = sequelize.define('Product', {
-  name: {
+const ChatApp = sequelize.define('chatapps', {
+  Username: {
     type: DataTypes.STRING,
     allowNull: false,
   }, 
-  profession: {
+  Email: {
     type: DataTypes.STRING,
     allowNull: false,
   }, 
- 
+  Password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    },
+  DPLINK: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    },
+  
 }); 
 
-module.exports = Product;
+module.exports = ChatApp;
