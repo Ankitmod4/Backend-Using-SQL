@@ -3,9 +3,9 @@ const ChatApp = require('./Model');
 
 exports.Createdata = async (req, res) => {
     try {
-        const { Username, Email, Password, DPLINK } = req.body;
-        console.log(Username, Email, Password, DPLINK);
-        if (!Username || !Password || !DPLINK || !Email) { 
+        const { Username, Email, Password } = req.body;
+        console.log(Username, Email, Password,);
+        if (!Username || !Password  || !Email) { 
             return res.status(400).json({ 
                 success: false,
                 message: "Items Not found"
@@ -21,7 +21,7 @@ exports.Createdata = async (req, res) => {
             });
         }
 
-        const data = await ChatApp.create({ Username, Email, Password, DPLINK });
+        const data = await ChatApp.create({ Username, Email, Password });
 
         res.status(201).json({
             success: true,

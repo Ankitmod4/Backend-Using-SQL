@@ -14,10 +14,7 @@ const ChatApp = sequelize.define('chatapps', {
     type: DataTypes.STRING,
     allowNull: false,
     },
-  DPLINK: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    },
+ 
   
 }); 
 
