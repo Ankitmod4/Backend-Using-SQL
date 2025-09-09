@@ -1,17 +1,21 @@
+# Use the official Node.js 20 Alpine image
 FROM node:20-alpine
 
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json files first for better caching
+# Copy package.json and package-lock.json files first to leverage Docker's cache
 COPY package*.json ./
 
+# Install project dependencies
 RUN npm install
 
-# Copy rest of the source code
+# Copy the rest of the application source code
 COPY . .
 
-# Expose Vite dev server port
+# Expose the port on which the Vite development server will run
 EXPOSE 5173
 
-# Run Vite dev server
-CMD ["npm", "run", "dev", "--host", "0.0.0.0"]
+# Command to run the Vite dev server, explicitly telling it to run on all network interfaces
+# This is the most likely fix for the ERR_EMPTY_RESPONSE error
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
